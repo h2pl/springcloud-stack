@@ -9,10 +9,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>order-service</artifactId>
+    <artifactId>ProductOrder-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>order-service</name>
-    <description>order-service</description>
+    <name>ProductOrder-service</name>
+    <description>ProductOrder-service</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -62,7 +62,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.example.orderservice.OrderServiceApplication</mainClass>
+                    <mainClass>com.example.orderservice.ProductOrderServiceApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

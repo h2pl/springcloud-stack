@@ -48,7 +48,7 @@ public class DAOGenerater {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir(projectPath + "src/main/java/");
+        gc.setOutputDir(projectPath + "/ProductOrder-service/src/main/java/");
         gc.setAuthor("hpl");
         gc.setOpen(false);
         gc.setFileOverride(true);
@@ -70,7 +70,7 @@ public class DAOGenerater {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.example.orderservice");
+        pc.setParent("com.example.orderservice.dao");
         pc.setEntity("po");
         pc.setService("dao");
         pc.setServiceImpl("dao.impl");
@@ -96,8 +96,8 @@ public class DAOGenerater {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
-                return projectPath + "/src/main/resources/mapper/" + pc.getModuleName()
-                        + "/" + tableInfo.getEntityName().substring(0,tableInfo.getEntityName().length() - 2) + "Mapper" + StringPool.DOT_XML;
+                return projectPath + "ProductOrder-service/src/main/resources/mapper/" + pc.getModuleName()
+                        + "/" + tableInfo.getEntityName().substring(0, tableInfo.getEntityName().length() - 2) + "Mapper" + StringPool.DOT_XML;
             }
         });
         /*
@@ -144,7 +144,7 @@ public class DAOGenerater {
 //            strategy.setSuperEntityColumns("id");
         strategy.setInclude(scanner("表名，多个英文逗号分割").split(","));
         strategy.setControllerMappingHyphenStyle(true);
-//        strategy.setTablePrefix("orderservice" + "_");
+//        strategy.setTablePrefix("ProductOrderservice" + "_");
         mpg.setStrategy(strategy);
         mpg.setTemplateEngine(new FreemarkerTemplateEngine());
         mpg.execute();

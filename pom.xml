@@ -13,7 +13,7 @@
     <modules>
         <module>common-service</module>
         <module>user-service</module>
-        <module>order-service</module>
+        <module>ProductOrder-service</module>
         <module>eureka-server</module>
         <module>nacos-server</module>
     </modules>
@@ -31,6 +31,11 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
             <version>3.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.2</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

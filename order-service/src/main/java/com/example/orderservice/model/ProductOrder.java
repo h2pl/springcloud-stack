@@ -7,9 +7,9 @@ import lombok.Data;
  * @date 2022/9/11 17:08
  */
 @Data
-public class Order {
-    private long id;
+public class ProductOrder {
+    private Long id;
     private String name;
-    private long userId;
+    private Long userId;
 
 }

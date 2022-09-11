@@ -1,4 +1,4 @@
-package com.example.orderservice;
+package com.example.ProductOrderservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
  * @author hpl
  */
 @SpringBootTest
-class OrderServiceApplicationTests {
+class ProductOrderServiceApplicationTests {
 
     @Test
     void contextLoads() {
