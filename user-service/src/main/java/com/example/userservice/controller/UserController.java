@@ -3,7 +3,7 @@ import com.example.commonservice.model.Result;
 import com.example.commonservice.util.ResultUtil;
 import com.example.userservice.dao.user.po.UserPO;
 import com.example.userservice.model.User;
-import com.example.userservice.service.UserService;
+import com.example.userservigce.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
