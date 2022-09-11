@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.orderservice.dao.productorder.dao.ProductOrderDao;
 import com.example.orderservice.dao.productorder.po.ProductOrderPO;
 import com.example.orderservice.model.ProductOrder;
+import com.example.userservice.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -41,6 +42,12 @@ public class ProductOrderService {
         return productOrderPOS;
     }
 
+    public List<ProductOrderPO> queryProductOrderByUser(User user) {
+        QueryWrapper<ProductOrderPO> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", user);
+        List<ProductOrderPO> productOrderPOS = productOrderDao.list(queryWrapper);
+        return productOrderPOS;
+    }
 
     ProductOrderPO convert2PO(ProductOrder ProductOrder) {
         ProductOrderPO productOrderPO = new ProductOrderPO();
@@ -49,5 +56,14 @@ public class ProductOrderService {
         productOrderPO.setUserId(ProductOrder.getUserId());
         return productOrderPO;
 
+    }
+
+
+    public List<ProductOrderPO> queryByIds(List<Long> ids) {
+        QueryWrapper<ProductOrderPO> queryWrapper = new QueryWrapper<>();
+        queryWrapper.in("user_id", ids);
+        List<ProductOrderPO> productOrderPOS = productOrderDao.list(queryWrapper);
+
+        return productOrderPOS;
     }
 }
