@@ -11,10 +11,13 @@ spring:
       server-addr: localhost:8848
       discovery:
         cluster-name: SH
-
+    sentinel:
+      transport:
+        dashboard: localhost:8088
+            
     #user-service:
-#  ribbon:
-#    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+    #  ribbon:
+    #    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
     #   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
 #eureka:
