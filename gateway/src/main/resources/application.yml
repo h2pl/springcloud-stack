@@ -17,3 +17,16 @@ spring:
           uri: lb://order-service
           predicates:
             - Path=/order/**
+      default-filters:
+      globalcors:
+        add-to-simple-url-handler-mapping: true
+        cors-configurations:
+          '[/**]':
+            allowed-origins:
+              - "http://localhost:8080"
+            allowed-methods:
+              - "GET"
+            allowed-headers:
+              - "*"
+            allowCredentials: true
+            maxAge: 360000
