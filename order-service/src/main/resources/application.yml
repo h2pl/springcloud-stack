@@ -11,6 +11,7 @@ spring:
       server-addr: localhost:8848
       discovery:
         cluster-name: HZ
+        namespace: 62630efa-f32a-4975-8fba-522cc34de42d
 
 #userservice:
 #  ribbon:

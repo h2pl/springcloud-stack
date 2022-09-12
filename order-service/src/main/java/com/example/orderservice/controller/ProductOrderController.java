@@ -8,6 +8,7 @@ import com.example.orderservice.model.ProductOrder;
 import com.example.orderservice.service.ProductOrderService;
 import com.example.userservice.dao.user.po.UserPO;
 import com.example.userservice.model.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -21,6 +22,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/order/")
+@Slf4j
 public class ProductOrderController {
 
     @Resource

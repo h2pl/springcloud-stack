@@ -4,17 +4,13 @@ spring:
     username: root
     password: 724888
     driver-class-name: com.mysql.cj.jdbc.Driver
-  application:
-    name: user-service
-  profiles:
-    active: dev
+  #  application:
+  #    name: user-service
   cloud:
     nacos:
       server-addr: localhost:8848
       discovery:
         cluster-name: SH
-      config:
-        file-extension: yaml
 
 #eureka:
 #  client:

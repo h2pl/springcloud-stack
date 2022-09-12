@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: order-service
+  profile:
+    active: dev
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      config:
+        file-extension: yaml
