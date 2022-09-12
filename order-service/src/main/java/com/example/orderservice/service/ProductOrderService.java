@@ -1,10 +1,10 @@
 package com.example.orderservice.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.feignapi.pojo.User;
 import com.example.orderservice.dao.productorder.dao.ProductOrderDao;
 import com.example.orderservice.dao.productorder.po.ProductOrderPO;
 import com.example.orderservice.model.ProductOrder;
-import com.example.userservice.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 

@@ -2,9 +2,8 @@ package com.example.userservice.controller;
 
 import com.example.commonservice.model.Result;
 import com.example.commonservice.util.ResultUtil;
+import com.example.feignapi.pojo.User;
 import com.example.userservice.config.NacosConfig;
-import com.example.userservice.dao.user.po.UserPO;
-import com.example.userservice.model.User;
 import com.example.userservice.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,8 +41,8 @@ public class UserController {
     }
 
     @GetMapping("query")
-    public Result<List<UserPO>> query(User user) {
-        List<UserPO> userPOS = userService.queryUser(user);
+    public Result<List<User>> query(User user) {
+        List<User> userPOS = userService.queryUser(user);
         return ResultUtil.buildResult(userPOS);
     }
 

@@ -1,14 +1,16 @@
 package com.example.userservice.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.feignapi.pojo.User;
 import com.example.userservice.dao.user.dao.UserDao;
 import com.example.userservice.dao.user.po.UserPO;
-import com.example.userservice.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author hpl
@@ -26,7 +28,7 @@ public class UserService {
         return user;
     }
 
-    public List<UserPO> queryUser(User user) {
+    public List<User> queryUser(User user) {
         QueryWrapper<UserPO> queryWrapper = new QueryWrapper<>();
         if (!StringUtils.isEmpty(user.getId())) {
             queryWrapper.eq("id", user.getId());
@@ -36,9 +38,24 @@ public class UserService {
         }
 
         List<UserPO> userPOS = userDao.list(queryWrapper);
-        return userPOS;
+        return convert2List(userPOS);
     }
 
+    List<User> convert2List(List<UserPO> userPOS) {
+        if (userPOS == null) {
+            return new ArrayList<>();
+        }
+
+        return userPOS.stream().map(this::convert).collect(Collectors.toList());
+    }
+
+    User convert(UserPO userPO) {
+        User user = new User();
+        user.setId(userPO.getId());
+        user.setName(userPO.getName());
+        return user;
+
+    }
 
     UserPO convert2PO(User user) {
         UserPO userPO = new UserPO();

@@ -2,12 +2,11 @@ package com.example.orderservice.controller;
 
 import com.example.commonservice.model.Result;
 import com.example.commonservice.util.ResultUtil;
+import com.example.feignapi.client.UserClient;
+import com.example.feignapi.pojo.User;
 import com.example.orderservice.dao.productorder.po.ProductOrderPO;
-import com.example.orderservice.feign.UserClient;
 import com.example.orderservice.model.ProductOrder;
 import com.example.orderservice.service.ProductOrderService;
-import com.example.userservice.dao.user.po.UserPO;
-import com.example.userservice.model.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
@@ -47,8 +46,8 @@ public class ProductOrderController {
     }
 
     @GetMapping("queryUser")
-    public Result<List<UserPO>> queryUser(User user) {
-        Result<List<UserPO>> result = userClient.query(user.getId(), user.getName());
+    public Result<List<User>> queryUser(User user) {
+        Result<List<User>> result = userClient.query(user.getId(), user.getName());
         return result;
     }
 
@@ -56,15 +55,15 @@ public class ProductOrderController {
     @GetMapping("queryByUser")
     public Result<List<ProductOrderPO>> query(User user) {
 
-        Result<List<UserPO>> result = restTemplate.getForObject("http://user-service/user/query", Result.class);
+        Result<List<User>> result = restTemplate.getForObject("http://user-service/user/query", Result.class);
         if (result == null) {
             throw new RuntimeException();
         }
 
         if (result.getSuccess()) {
-            List<UserPO> list = result.getData();
+            List<User> list = result.getData();
             if (list != null) {
-                List<Long> ids = list.stream().map(UserPO::getId).collect(Collectors.toList());
+                List<Long> ids = list.stream().map(User::getId).collect(Collectors.toList());
                 List<ProductOrderPO> productOrderPOS = productOrderService.queryByIds(ids);
                 return ResultUtil.buildResult(productOrderPOS);
             } else {

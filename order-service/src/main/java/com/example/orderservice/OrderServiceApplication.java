@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication(scanBasePackages = {"com.example.*"})
 @MapperScan("com.example.orderservice.**.mapper")
 //@EnableEurekaClient
-@EnableFeignClients
+@EnableFeignClients(basePackages = {"com.example.feignapi.client"})
 public class OrderServiceApplication {
 
     @Bean

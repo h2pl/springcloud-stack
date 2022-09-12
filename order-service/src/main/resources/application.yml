@@ -10,13 +10,12 @@ spring:
     nacos:
       server-addr: localhost:8848
       discovery:
-        cluster-name: HZ
-        namespace: 62630efa-f32a-4975-8fba-522cc34de42d
+        cluster-name: SH
 
-#userservice:
+    #user-service:
 #  ribbon:
 #    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
-#    #   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+    #   NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
 
 #eureka:
 #  client:
@@ -35,11 +34,11 @@ spring:
 
 logging:
   level:
-    com.example.com.example.orderservice: debug
+    com.example: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
 
 ribbon:
   eager-load:
-    clients: userservice
+    clients: user-service
     enabled: true
