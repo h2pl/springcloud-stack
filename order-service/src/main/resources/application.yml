@@ -6,17 +6,29 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: order-service
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        cluster-name: SH
 
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:7001/eureka/
-      # 是否需要将自己注册到注册中心
-      register-with-eureka: true
-      # 是否需要搜索服务信息
-      fetch-registry: true
-    instance:
-      # 使用ip地址注册到注册中心
-      prefer-ip-address: true
-      # 注册中心列表中显示的状态参数
-      instance-id: ${spring.cloud.client.ip-address}:${server.port}
+#eureka:
+#  client:
+#    serviceUrl:
+#      defaultZone: http://localhost:7001/eureka/
+#      # 是否需要将自己注册到注册中心
+#      register-with-eureka: true
+#      # 是否需要搜索服务信息
+#      fetch-registry: true
+#    instance:
+#      # 使用ip地址注册到注册中心
+#      prefer-ip-address: true
+#      # 注册中心列表中显示的状态参数
+#      instance-id: ${spring.cloud.client.ip-address}:${server.port}
+
+
+logging:
+  level:
+    com.example.com.example.orderservice: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
