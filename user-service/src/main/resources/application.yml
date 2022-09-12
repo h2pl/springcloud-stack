@@ -6,11 +6,15 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: user-service
+  profiles:
+    active: dev
   cloud:
     nacos:
       server-addr: localhost:8848
       discovery:
         cluster-name: HZ
+      config:
+        file-extension: yaml
 
 #eureka:
 #  client:

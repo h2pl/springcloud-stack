@@ -12,6 +12,10 @@ spring:
       discovery:
         cluster-name: SH
 
+userservice:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
 #eureka:
 #  client:
 #    serviceUrl:
@@ -32,3 +36,8 @@ logging:
     com.example.com.example.orderservice: debug
   pattern:
     dateformat: MM-dd HH:mm:ss:SSS
+    
+ribbon:
+  eager-load:
+    clients: userservice
+    enabled: true
