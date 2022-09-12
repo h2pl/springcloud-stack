@@ -4,9 +4,17 @@ server:
 spring:
   application:
     name: gateway
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
   cloud:
     nacos:
       server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8088
     gateway:
       routes:
         - id: user-service

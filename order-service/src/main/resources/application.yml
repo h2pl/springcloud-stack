@@ -1,11 +1,16 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/springcloud_stack?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/springcloud_stack?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     username: root
     password: 724888
     driver-class-name: com.mysql.cj.jdbc.Driver
   application:
     name: order-service
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1
   cloud:
     nacos:
       server-addr: localhost:8848
@@ -14,7 +19,7 @@ spring:
     sentinel:
       transport:
         dashboard: localhost:8088
-            
+
     #user-service:
     #  ribbon:
     #    NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
